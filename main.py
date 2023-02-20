@@ -4,6 +4,10 @@ from food import Food
 from scoreboard import ScoreBoard
 import time
 
+def end_game():
+    global isGameOn
+    isGameOn = False
+
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
@@ -19,6 +23,7 @@ screen.onkey(snake.up, "Up")
 screen.onkey(snake.down, "Down")
 screen.onkey(snake.left, "Left")
 screen.onkey(snake.right, "Right")
+screen.onkey(end_game, "x")
 
 isGameOn = True
 while isGameOn:
@@ -44,4 +49,3 @@ while isGameOn:
             scoreboard.reset()
             snake.reset()
 
-screen.exitonclick()
